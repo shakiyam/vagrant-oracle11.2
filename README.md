@@ -7,6 +7,8 @@ Vagrant + Oracle Linux 7.3 + Oracle Database 11g Release 2 (11.2.0.1) Enterprise
 
 Oracle Database 12c Release 2 (11.2.0.1)のソフトウェアを以下からダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
 
+http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html
+
 * linux.x64_11gR2_database_1of2.zip
 * linux.x64_11gR2_database_2of2.zip
 
@@ -63,7 +65,7 @@ vagrant up
 vagrant ssh
 ```
 
-DBに接続する。
+DBに接続する。(OSユーザーoracleのパスワードはoracle)
 
 ```
 su - oracle
