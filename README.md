@@ -5,7 +5,7 @@ Vagrant + Oracle Linux 7.3 + Oracle Database 11g Release 2 (11.2.0.1) Enterprise
 
 ## ダウンロード
 
-Oracle Database 12c Release 2 (11.2.0.1)のソフトウェアを以下からダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
+Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを以下からダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
 
 http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html
 
