@@ -37,7 +37,7 @@ su - oracle -c "$script_dir/database/runInstaller -silent \
 /u01/app/oracle/product/11.2.0.1/dbhome_1/root.sh
 
 # Create listener using netca
-su - oracle -c "netca -silent -responseFile \
+su - oracle -c "DISPLAY=0.0 netca -silent -responseFile \
   $script_dir/database/response/netca.rsp"
 
 # Create database
