@@ -1,14 +1,14 @@
 vagrant-oracle11.2
 ==================
 
-Vagrant + Oralce Linux 7.3 + Oracle Database 11g Release 2 (11.2.0.4) Enteprise Edition シングル環境の簡易セットアップ。
+Vagrant + Oralce Linux 7.3 + Oracle Database 11g Release 2 (11.2.0.1) Enteprise Edition シングル環境の簡易セットアップ。
 
 ## ダウンロード
 
-Oracle Database 11g Release 2 (11.2.0.4) Enteprise EditionのソフトウェアをMy Oracle Supportからダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
+Oracle Database 12c Release 2 (11.2.0.1)のソフトウェアを以下からダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
 
-* p13390677_112040_Linux-x86-64_1of7.zip
-* p13390677_112040_Linux-x86-64_2of7.zip
+* linux.x64_11gR2_database_1of2.zip
+* linux.x64_11gR2_database_2of2.zip
 
 ## Vagrant設定
 
