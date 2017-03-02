@@ -17,7 +17,7 @@ chmod -R 775 /u01/app/
 # Set environment variables
 cat <<EOT >> /home/oracle/.bash_profile
 export ORACLE_BASE=/u01/app/oracle
-export ORACLE_HOME=/u01/app/oracle/product/11.2.0.4/dbhome_1
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0.1/dbhome_1
 export ORACLE_SID=orcl11g
 export PATH=\$PATH:\$ORACLE_HOME/bin
 EOT
@@ -31,14 +31,14 @@ EOT
 echo oracle:oracle | chpasswd
 
 # Install database
-su - oracle -c "$script_dir/database/runInstaller -silent -showProgress \
+su - oracle -c "$script_dir/database/runInstaller -silent \
   -ignorePrereq  -waitforcompletion -responseFile $script_dir/db_install.rsp"
 /u01/app/oraInventory/orainstRoot.sh
-/u01/app/oracle/product/11.2.0.4/dbhome_1/root.sh
+/u01/app/oracle/product/11.2.0.1/dbhome_1/root.sh
 
 # Create listener using netca
 su - oracle -c "netca -silent -responseFile \
-  /u01/app/oracle/product/11.2.0.4/dbhome_1/assistants/netca/netca.rsp"
+  $script_dir/database/response/netca.rsp"
 
 # Create database
 su - oracle -c "dbca -silent -createDatabase -responseFile $script_dir/dbca.rsp"
