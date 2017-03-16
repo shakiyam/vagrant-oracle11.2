@@ -65,11 +65,12 @@ vagrant up
 vagrant ssh
 ```
 
-DBに接続する。(OSユーザーoracleのパスワードはoracle)
+DBに接続し、サンプル表を確認する。
 
 ```
-su - oracle
+sudo su - oracle
 sqlplus system/oracle
+SELECT * FROM scott.emp;
 ```
 
 ## Known Issues ##
