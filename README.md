@@ -72,6 +72,12 @@ su - oracle
 sqlplus system/oracle
 ```
 
+## Known Issues ##
+
+Windows版のVirtualbox 5.1.16は共有フォルダに問題があります。VirtualBoxをアップグレードして下さい。
+
+参考: [Windows UNC path is crashing with \\\\?\\ prefix · Issue #8352 · mitchellh/vagrant](https://github.com/mitchellh/vagrant/issues/8352)
+
 ## Author ##
 
 [Shinichi Akiyama](https://github.com/shakiyam)
