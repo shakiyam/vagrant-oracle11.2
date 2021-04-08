@@ -80,12 +80,12 @@ SELECTED_LANGUAGES=en,ja
 #------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Home. 
 #------------------------------------------------------------------------------
-ORACLE_HOME=/u01/app/oracle/product/11.2.0.1/dbhome_1
+ORACLE_HOME={{ORACLE_HOME}}
 
 #------------------------------------------------------------------------------
 # Specify the complete path of the Oracle Base. 
 #------------------------------------------------------------------------------
-ORACLE_BASE=/u01/app/oracle
+ORACLE_BASE={{ORACLE_BASE}}
 
 #------------------------------------------------------------------------------
 # Specify the installation edition of the component.                     
@@ -96,7 +96,7 @@ ORACLE_BASE=/u01/app/oracle
 # SEONE  : Standard Edition One
 # PE     : Personal Edition (WINDOWS ONLY)
 #------------------------------------------------------------------------------
-oracle.install.db.InstallEdition=
+oracle.install.db.InstallEdition={{ORACLE_EDITION}}
 
 #------------------------------------------------------------------------------
 # This variable is used to enable or disable custom install.

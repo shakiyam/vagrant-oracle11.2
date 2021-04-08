@@ -8,6 +8,20 @@ Vagrant + Oracle Linux 7.4 + Oracle Database 11g Release 2 (11.2.0.1) Enterprise
 
 Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを入手し、Vagrantfileと同じディレクトリに展開。展開すると`database`というサブディレクトリになるはず。
 
+環境変数の設定
+--------------
+
+`dotenv.sample`というファイルを`.env`という名前のファイルにコピーし、必要に応じて内容を書き換える。
+
+```shell
+ORACLE_BASE=/u01/app/oracle
+ORACLE_CHARACTERSET=AL32UTF8
+ORACLE_EDITION=EE
+ORACLE_HOME=/u01/app/oracle/product/11.2.0.1/dbhome_1
+ORACLE_PASSWORD=oracle
+ORACLE_SID=orcl
+```
+
 Vagrant設定
 -----------
 

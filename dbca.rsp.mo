@@ -75,7 +75,7 @@ OPERATION_TYPE = "createDatabase"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-GDBNAME = "orcl11g.us.oracle.com"
+GDBNAME = "{{ORACLE_SID}}"
 
 #-----------------------------------------------------------------------------
 # Name          : POLICYMANAGED
@@ -146,7 +146,7 @@ GDBNAME = "orcl11g.us.oracle.com"
 # Default value : <db_name> specified in GDBNAME
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-SID = "orcl11g"
+SID = "{{ORACLE_SID}}"
 
 #-----------------------------------------------------------------------------
 # Name          : NODELIST
@@ -187,7 +187,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-SYSPASSWORD = "oracle"
+SYSPASSWORD = "{{ORACLE_PASSWORD}}"
 
 #-----------------------------------------------------------------------------
 # Name          : SYSTEMPASSWORD
@@ -197,7 +197,7 @@ SYSPASSWORD = "oracle"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-SYSTEMPASSWORD = "oracle"
+SYSTEMPASSWORD = "{{ORACLE_PASSWORD}}"
 
 #-----------------------------------------------------------------------------
 # Name          : EMCONFIGURATION
@@ -412,7 +412,7 @@ SYSTEMPASSWORD = "oracle"
 # Default value : "US7ASCII"
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-CHARACTERSET="AL32UTF8"
+CHARACTERSET = "{{ORACLE_CHARACTERSET}}"
 
 #-----------------------------------------------------------------------------
 # Name          : NATIONALCHARACTERSET

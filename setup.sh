@@ -3,19 +3,35 @@ set -eu -o pipefail
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 
+# load environment variables from .env
+set -a
+if [ -e "$script_dir"/.env ]; then
+  # shellcheck disable=SC1090
+  . "$script_dir"/.env
+else
+  echo 'Environment file .env not found. Therefore, dotenv.sample will be used.'
+  # shellcheck disable=SC1090
+  . "$script_dir"/dotenv.sample
+fi
+set +a
+
+# Install Mo
+curl -sSL https://git.io/get-mo -o /usr/local/bin/mo
+chmod +x /usr/local/bin/mo
+
 # Install Oracle Preinstallation RPM
 yum -y install oracle-rdbms-server-11gR2-preinstall
 
 # Create directories
-mkdir -p /u01/app/
-chown -R oracle:oinstall /u01/app/
-chmod -R 775 /u01/app/
+mkdir -p "$ORACLE_BASE"/..
+chown -R oracle:oinstall "$ORACLE_BASE"/..
+chmod -R 775 "$ORACLE_BASE"/..
 
 # Set environment variables
 cat <<EOT >> /home/oracle/.bash_profile
-export ORACLE_BASE=/u01/app/oracle
-export ORACLE_HOME=/u01/app/oracle/product/11.2.0.1/dbhome_1
-export ORACLE_SID=orcl11g
+export ORACLE_BASE=$ORACLE_BASE
+export ORACLE_HOME=$ORACLE_HOME
+export ORACLE_SID=$ORACLE_SID
 export PATH=\$PATH:\$ORACLE_HOME/bin
 EOT
 
@@ -32,19 +48,21 @@ EOT
 esac
 
 # Set oracle password
-echo oracle:oracle | chpasswd
+echo oracle:"$ORACLE_PASSWORD" | chpasswd
 
 # Install database
+/usr/local/bin/mo "$script_dir"/db_install.rsp.mo >"$script_dir"/db_install.rsp
 su - oracle -c "$script_dir/database/runInstaller -silent \
   -ignorePrereq  -waitforcompletion -responseFile $script_dir/db_install.rsp"
-/u01/app/oraInventory/orainstRoot.sh
-/u01/app/oracle/product/11.2.0.1/dbhome_1/root.sh
+"$ORACLE_BASE"/../oraInventory/orainstRoot.sh
+"$ORACLE_HOME"/root.sh
 
 # Create listener using netca
 su - oracle -c "DISPLAY=0.0 netca -silent -responseFile \
   $script_dir/database/response/netca.rsp"
 
 # Create database
+/usr/local/bin/mo "$script_dir"/dbca.rsp.mo >"$script_dir"/dbca.rsp
 su - oracle -c "dbca -silent -createDatabase -responseFile $script_dir/dbca.rsp"
 
 # Shutdown database
