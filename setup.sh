@@ -3,20 +3,6 @@ set -eu -o pipefail
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 
-# shellcheck disable=SC1091
-os_version=$(. /etc/os-release; echo "$VERSION")
-
-# Install rlwrap
-case ${os_version%%.*} in
-  6)
-    yum -y localinstall https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-    ;;
-  7)
-    yum -y localinstall https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    ;;
-esac
-yum -y install rlwrap
-
 # Install Oracle Preinstallation RPM
 yum -y install oracle-rdbms-server-11gR2-preinstall
 
@@ -33,10 +19,17 @@ export ORACLE_SID=orcl11g
 export PATH=\$PATH:\$ORACLE_HOME/bin
 EOT
 
-# Set alias
-cat <<EOT >> /home/oracle/.bashrc
+# Install rlwrap and set alias
+# shellcheck disable=SC1091
+readonly OS_VERSION=$(. /etc/os-release; echo "$VERSION")
+case ${OS_VERSION%%.*} in
+  7)
+    yum -y --enablerepo=ol7_developer_EPEL install rlwrap
+    cat <<EOT >>/home/oracle/.bashrc
 alias sqlplus='rlwrap sqlplus'
 EOT
+    ;;
+esac
 
 # Set oracle password
 echo oracle:oracle | chpasswd
