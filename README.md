@@ -6,10 +6,7 @@ Vagrant + Oracle Linux 7.4 + Oracle Database 11g Release 2 (11.2.0.1) Enterprise
 ダウンロード
 ------------
 
-Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを[Oracle Technology Network](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)からダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると"database"というサブディレクトリになるはず。
-
-* linux.x64_11gR2_database_1of2.zip
-* linux.x64_11gR2_database_2of2.zip
+Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを入手し、Vagrantfileと同じディレクトリに展開。展開すると`database`というサブディレクトリになるはず。
 
 Vagrant設定
 -----------
@@ -43,7 +40,7 @@ SET VAGRANT_NO_PROXY=localhost,127.0.0.1
 ```
 
 セットアップ
------------
+------------
 
 `vagrant up`を実行すると、内部的に以下が動く。
 
@@ -61,7 +58,7 @@ vagrant up
 ```
 
 動作確認
--------
+--------
 
 ゲストOSに接続する。
 
@@ -85,4 +82,4 @@ Author
 License
 -------
 
-[MIT License](http://www.opensource.org/licenses/mit-license.php)
+[MIT License](https://opensource.org/licenses/MIT)
