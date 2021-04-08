@@ -1,7 +1,7 @@
 vagrant-oracle11.2
 ==================
 
-Vagrant + Oracle Linux 7.4 + Oracle Database 11g Release 2 (11.2.0.1) Enterprise Editionシングル環境の簡易セットアップ。
+Vagrant + Oracle Linux 7.4 + Oracle Database 11g Release 2 (11.2.0.1) シングル環境の簡易セットアップ。
 
 ダウンロード
 ------------
