@@ -1,12 +1,15 @@
 vagrant-oracle11.2
 ==================
 
-Vagrant + Oracle Linux 7 + Oracle Database 11g Release 2 (11.2.0.1) シングル環境の簡易セットアップ。
+Vagrant + Oracle Linux 7 + Oracle Database 11g Release 2 (11.2.0.4) シングル環境の簡易セットアップ。
 
 ダウンロード
 ------------
 
-Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを入手し、Vagrantfileと同じディレクトリに展開。展開すると`database`というサブディレクトリになるはず。
+Oracle Database 11g Release 2 (11.2.0.4)のソフトウェアをMy Oracle Supportからダウンロードし、Vagrantfileと同じディレクトリに展開。展開すると`database`というサブディレクトリになるはず。
+
+* p13390677_112040_Linux-x86-64_1of7.zip
+* p13390677_112040_Linux-x86-64_2of7.zip
 
 環境変数の設定
 --------------
@@ -17,7 +20,7 @@ Oracle Database 11g Release 2 (11.2.0.1)のソフトウェアを入手し、Vagr
 ORACLE_BASE=/u01/app/oracle
 ORACLE_CHARACTERSET=AL32UTF8
 ORACLE_EDITION=EE
-ORACLE_HOME=/u01/app/oracle/product/11.2.0.1/dbhome_1
+ORACLE_HOME=/u01/app/oracle/product/11.2.0.4/dbhome_1
 ORACLE_PASSWORD=oracle
 ORACLE_SID=orcl
 ```

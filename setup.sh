@@ -52,14 +52,14 @@ echo oracle:"$ORACLE_PASSWORD" | chpasswd
 
 # Install database
 /usr/local/bin/mo "$script_dir"/db_install.rsp.mo >"$script_dir"/db_install.rsp
-su - oracle -c "$script_dir/database/runInstaller -silent \
-  -ignorePrereq  -waitforcompletion -responseFile $script_dir/db_install.rsp"
+su - oracle -c "$script_dir/database/runInstaller -silent -showProgress \
+  -ignorePrereq -waitforcompletion -responseFile $script_dir/db_install.rsp"
 "$ORACLE_BASE"/../oraInventory/orainstRoot.sh
 "$ORACLE_HOME"/root.sh
 
 # Create listener using netca
-su - oracle -c "DISPLAY=0.0 netca -silent -responseFile \
-  $script_dir/database/response/netca.rsp"
+su - oracle -c "netca -silent -responseFile \
+  $ORACLE_HOME/assistants/netca/netca.rsp"
 
 # Create database
 /usr/local/bin/mo "$script_dir"/dbca.rsp.mo >"$script_dir"/dbca.rsp

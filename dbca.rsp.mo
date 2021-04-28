@@ -2,7 +2,7 @@
 ##                                                                          ##
 ##                            DBCA response file                            ##
 ##                            ------------------                            ##
-## Copyright   1998, 2007, Oracle Corporation. All Rights Reserved.         ##
+## Copyright   1998, 2013, Oracle Corporation. All Rights Reserved.         ##
 ##                                                                          ##
 ## Specify values for the variables listed below to customize Oracle        ##
 ## Database Configuration installation.                                     ##
@@ -75,7 +75,28 @@ OPERATION_TYPE = "createDatabase"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-GDBNAME = "{{ORACLE_SID}}"
+GDBNAME = "orcl11g.us.oracle.com"
+
+#-----------------------------------------------------------------------------
+# Name          : RACONENODE
+# Datatype      : Boolean
+# Description   : Set to true for RAC One Node database
+# Valid values  : TRUE\FALSE
+# Default value : FALSE
+# Mandatory     : No
+#-----------------------------------------------------------------------------
+#RACONENODE  = "false"
+
+#-----------------------------------------------------------------------------
+# Name          : RACONENODESERVICENAME
+# Datatype      : String
+# Description   : Service is required by application to connect to RAC One 
+#		  Node Database
+# Valid values  : Service Name
+# Default value : None
+# Mandatory     : No [required in case RACONENODE flag is set to true]
+#-----------------------------------------------------------------------------
+#RACONENODESERVICENAME = 
 
 #-----------------------------------------------------------------------------
 # Name          : POLICYMANAGED
@@ -203,7 +224,7 @@ SYSTEMPASSWORD = "{{ORACLE_PASSWORD}}"
 # Name          : EMCONFIGURATION
 # Datatype      : String
 # Description   : Enterprise Manager Configuration Type
-# Valid values  : CENTRAL|LOCAL|ALL|NOBACKUP|NOEMAIL|NONE
+# Valid values  : CENTRAL|LOCAL|ALL|NONE
 # Default value : NONE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
@@ -254,7 +275,7 @@ SYSTEMPASSWORD = "{{ORACLE_PASSWORD}}"
 # Datatype      : String
 # Description   : Host user name for EM backup job
 # Default value : None
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #HOSTUSERNAME = 
 
@@ -263,7 +284,7 @@ SYSTEMPASSWORD = "{{ORACLE_PASSWORD}}"
 # Datatype      : String
 # Description   : Host user password for EM backup job
 # Default value : None
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #HOSTUSERPASSWORD= 
 
@@ -272,27 +293,9 @@ SYSTEMPASSWORD = "{{ORACLE_PASSWORD}}"
 # Datatype      : String
 # Description   : Daily backup schedule in the form of hh:mm
 # Default value : 2:00
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #BACKUPSCHEDULE=
-
-#-----------------------------------------------------------------------------
-# Name          : SMTPSERVER
-# Datatype      : String
-# Description   : Outgoing mail (SMTP) server for email notifications
-# Default value : None
-# Mandatory     : Yes, if ALL or NOBACKUP are specified for EMCONFIGURATION
-#-----------------------------------------------------------------------------
-#SMTPSERVER =
-
-#-----------------------------------------------------------------------------
-# Name          : EMAILADDRESS
-# Datatype      : String
-# Description   : Email address for email notifications
-# Default value : None
-# Mandatory     : Yes, if ALL or NOBACKUP are specified for EMCONFIGURATION
-#-----------------------------------------------------------------------------
-#EMAILADDRESS =
 
 #-----------------------------------------------------------------------------
 # Name          : DVOWNERNAME
@@ -499,6 +502,16 @@ CHARACTERSET = "{{ORACLE_CHARACTERSET}}"
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
 #INITPARAMS =
+
+#-----------------------------------------------------------------------------
+# Name          : SAMPLESCHEMA
+# Datatype      : Boolean
+# Description   : Specifies whether or not to add the Sample Schemas to your database
+# Valid values  : TRUE \ FALSE
+# Default value : FASLE
+# Mandatory     : No
+#-----------------------------------------------------------------------------
+SAMPLESCHEMA=TRUE
 
 #-----------------------------------------------------------------------------
 # Name          : MEMORYPERCENTAGE
@@ -829,7 +842,7 @@ GDBNAME = "orcl11.us.oracle.com"
 # Name          : EMCONFIGURATION
 # Datatype      : String
 # Description   : Enterprise Manager Configuration Type
-# Valid values  : CENTRAL|LOCAL|ALL|NOBACKUP|NOEMAIL|NONE
+# Valid values  : CENTRAL|LOCAL|ALL|NONE
 # Default value : NONE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
@@ -869,7 +882,7 @@ GDBNAME = "orcl11.us.oracle.com"
 # Datatype      : String
 # Description   : Host user name for EM backup job
 # Default value : None
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #HOSTUSERNAME = 
 
@@ -878,7 +891,7 @@ GDBNAME = "orcl11.us.oracle.com"
 # Datatype      : String
 # Description   : Host user password for EM backup job
 # Default value : None
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #HOSTUSERPASSWORD= 
 
@@ -887,27 +900,9 @@ GDBNAME = "orcl11.us.oracle.com"
 # Datatype      : String
 # Description   : Daily backup schedule in the form of hh:mm
 # Default value : 2:00
-# Mandatory     : Yes, if ALL or NOEMAIL are specified for EMCONFIGURATION
+# Mandatory     : Yes, if ALL is specified for EMCONFIGURATION
 #-----------------------------------------------------------------------------
 #BACKUPSCHEDULE=
-
-#-----------------------------------------------------------------------------
-# Name          : SMTPSERVER
-# Datatype      : String
-# Description   : Outgoing mail (SMTP) server for email notifications
-# Default value : None
-# Mandatory     : Yes, if ALL or NOBACKUP are specified for EMCONFIGURATION
-#-----------------------------------------------------------------------------
-#SMTPSERVER =
-
-#-----------------------------------------------------------------------------
-# Name          : EMAILADDRESS
-# Datatype      : String
-# Description   : Email address for email notifications
-# Default value : None
-# Mandatory     : Yes, if ALL or NOBACKUP are specified for EMCONFIGURATION
-#-----------------------------------------------------------------------------
-#EMAILADDRESS =
 
 #-----------------------*** End of CONFIGUREDATABASE section ***------------------------
 
