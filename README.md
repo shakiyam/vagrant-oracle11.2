@@ -22,6 +22,7 @@ ORACLE_CHARACTERSET=AL32UTF8
 ORACLE_EDITION=EE
 ORACLE_HOME=/u01/app/oracle/product/11.2.0.4/dbhome_1
 ORACLE_PASSWORD=oracle
+ORACLE_SAMPLESCHEMA=TRUE
 ORACLE_SID=orcl
 ```
 
@@ -52,12 +53,14 @@ Connect to the guest OS.
 vagrant ssh
 ```
 
-Connect to the database and access the sample table.
+Connect to the database and browse to the sample table.
 
 ```console
 sudo su - oracle
 sqlplus system/oracle
 SELECT * FROM scott.emp;
+-- If you have sample schemas installed
+SELECT * FROM hr.employees WHERE rownum <= 10;
 ```
 
 Author
